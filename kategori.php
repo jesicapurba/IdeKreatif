@@ -46,6 +46,54 @@ include '.includes/toast_notification.php';
                       </div>
                     </td>
                   </tr>
+
+<div class="modal fade" id="deleteCategory_<?= $category['category_id'];?>" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Hapus Kategori?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
+                </div>
+                <div class="modal-body">
+                  <form action="proses_kategori.php" method="POST">
+                    <div>
+                      <p>Tindakan ini tidak bisa dibatalkan</p>
+                      <input type="hidden" name="catID" value="<?=$category['category_id']; ?>">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+                  <button type="submit" name="delete" class="btn btn-primary">Hapus</button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+       </div>
+
+       <div id="editCategory_<?= $category['category_id']; ?>" class="modal fade" tabindex="-1" aria-hidden="true">
+       <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Data Kategori</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="proses_kategori.php" method="POST">
+                    <input type="hidden" name="catID" value="<?= $category['category_id']; ?>">
+                    <div class="form-group">
+                      <label>Nama Kategori</label>
+                      <input type="text" value="<?= $category['category_name']; ?>" name="category_name" class="form-control">
+                      </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" name="update" class="btn btn-primary">Update</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>            
+      </div>
                 <?php endwhile: ?>
               </tbody>
             </table>
