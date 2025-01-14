@@ -10,10 +10,10 @@ include '.includes/toast_notification.php';
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategory">
             Tambah Kategori
         </button>
-</div>
-<div class="card-body">
-<div class="table-resposive text-nowrap">
-    <table id="datatable" class="table table-hover">
+        </div>
+        <div class="card-body">
+        <div class="table-responsive text-nowrap">
+        <table id="datatable" class="table table-hover">
         <thead>
             <tr class="text-center">
                 <th width="50px">#</th>
@@ -28,12 +28,12 @@ include '.includes/toast_notification.php';
                 $query = "SELECT * FROM categories";
                 $exec = mysqli_query($conn, $query);
                 while ($category = mysqli_fetch_assoc($exec)) :
-?>
-<tr>
-    <td><?= $index++; ?></td>
-    <td><?= $category['category_name']: ?></td>
-    <td>
-        <div class="dropdown">
+             ?>
+            <tr>
+           <td><?= $index++; ?></td>
+           <td><?= $category['category_name']; ?></td>
+           <td>
+           <div class="dropdown">
             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                 <i class="bx bx-dots-vertical-rounded"></i>
                 </button>
@@ -94,7 +94,7 @@ include '.includes/toast_notification.php';
           </div>
         </div>            
       </div>
-                <?php endwhile: ?>
+                <?php endwhile; ?>
               </tbody>
             </table>
           </div>
