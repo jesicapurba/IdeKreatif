@@ -4,6 +4,14 @@ $notification = $_SESSION['notification'] ?? null;
 if ($notification) {
   unset($_SESSION['notification']);
 }
+
+if (isset($_SESSION['username']) || isset($_SESSION["role"])) {
+  $_SESSION['notification'] = [
+    'type' => 'danger',
+    'message' => 'Silakan Logout Terlebih Dahulu!'
+  ];
+  header('Location: ../dashboard.php');
+}
 ?>
 
 <!DOCTYPE html>

@@ -10,47 +10,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        $row = $result->fetch_asssoc();
         $row = $result->fetch_assoc();
 
-        if (password_verify( $password, $row["password"])) {
         if (password_verify($password, $row["password"])) {
             $_SESSION["username"] = $username;
             $_SESSION["name"] = $row["name"];
             $_SESSION["role"] = $row ["role"];
             $_SESSION["user_id"] = $row ["user_id"];
-            $_SESSION["role"] = $row["role"];
-            $_SESSION["user_id"] = $row["user_id"];
+
             $_SESSION['notification'] = [
-                'type'=>'primary',
-                'message'=>'Selamat Datang Kembali!'
                 'type' => 'primary',
-                'message' => 'Selamat Datang Kembali!'
+                'message' => 'Selamat Datang Kembali!'   
             ];
+            
             header('Location: ../dashboard.php');
             exit();
         } else {
             $_SESSION['notification'] = [
-                'type'=>'danger',
-                'message'=>'Username atau Password salah'
                 'type' => 'danger',
-                'message' => 'Username atau Password salah'
+                'message' => 'Username atau Password salah' 
             ];
         }
-    
-} else {
-    $_SESSION['notification'] = [
-        'type'=>'danger',
-        'message'=>'Username atau Password salah'
-    ];
-}
         } else {
             $_SESSION['notification'] = [
                 'type' => 'danger',
                 'message' => 'Username atau Password salah'
             ];
         }       
-    header('Location: login.php');
-    exit();
-}
-$conn->close();
+         header('Location: login.php');
+        exit();
+        }
+        $conn->close();
+?>
