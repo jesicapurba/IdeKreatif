@@ -1,7 +1,7 @@
 <?php
 
-$host = "localhost";
-$username = "root";
+$host = "localhost";    
+$username = "root";      
 $password = "";
 $database = "idekreatif";
 
