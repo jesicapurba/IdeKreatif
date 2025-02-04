@@ -72,11 +72,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
         $imagePath = $imageDir . $imageName;
 
         move_uploaded_file($_FILES["image_path"]["tmp_name"], $imagePath);
+
          $queryOldImage = "SELECT image_path FROM posts WHERE id_post = $postId";
           $resultOldImage = $conn->query($queryOldImage);
         if ($resultOldImage->num_rows > 0) {
             $oldImage = $resultOldImage->fetch_assoc()['image_path'];
-            if (file_exist($oldImage)) {
+            if (file_exists($oldImage)) {
                 unlink($oldImage);
             }
         }
