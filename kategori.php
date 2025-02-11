@@ -28,7 +28,7 @@ include '.includes/toast_notification.php';
        $query = "SELECT * FROM categories";
           $exec = mysqli_query($conn, $query);
             while ($category = mysqli_fetch_assoc($exec)) :
-    ?>
+            ?>
 <tr>
   <td><?= $index++; ?></td>
     <td><?= $category['category_name']; ?></td>

@@ -16,10 +16,10 @@ include '.includes/header.php';
     <label for="formFile" class="form-label">Unggah Gambar</label>
         <input class="form-control" type="file" name="image" accept="image/*"/>
             </div>
-<div class="mb-3">
-    <label for="category_id" class="form-label">Kategori</label>
-         <select class="form-select" name="category_id" required>
-            <option value="" selected disabled>Pilih Salah Satu</option>
+              <div class="mb-3">
+            <label for="category_id" class="form-label">Kategori</label>
+        <select class="form-select" name="category_id" required>
+    <option value="" selected disabled>Pilih Salah Satu</option>
 
 <?php
     $query = "SELECT * FROM categories"; 
@@ -28,15 +28,15 @@ include '.includes/header.php';
                  while ($row = $result->fetch_assoc()) { 
                      echo "<option value='" . $row["category_id"] . "'>" . $row["category_name"] . "</option>";
                         }
-                          }
-?>
-    </select>
-        </div>
+                           }
+                              ?>
+                                </select>
+                                    </div>
 <div class="mb-3">
     <label for="content" class="form-label">Konten</label>
         <textarea class="form-control" id="content" name="content" required></textarea>
              </div>
-                 <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
+                  <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
                 </form>
               </div>
           </div>

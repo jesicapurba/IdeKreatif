@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
       <div class="mb-3">
      <label for="post_title" class="form-label">Judul Postingan</label>
     <input type="text" class="form-control" id="post_title" name="post_title" value="<?php echo $post['post_title']; ?>" required>
-</div>
+  </div>
 
 <div class="mb-3">
  <label for="formFile" class="form-label">Unggah Gambar</label>
